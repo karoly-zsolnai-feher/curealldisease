@@ -1,182 +1,454 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>AI Cure Progress</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --color-bg: #f0faff;
-      --color-primary: #a3d5ff;
-      --color-white: #ffffff;
-      --color-text: #333333;
-      --color-shadow: rgba(0, 0, 0, 0.1);
-    }
-    * { box-sizing: border-box; }
-    body {
-      background: var(--color-bg);
-      font-family: 'Inter', sans-serif;
-      color: var(--color-text);
-      margin: 0;
-      padding: 2rem;
-      line-height: 1.6;
-    }
-    blockquote {
-      background: var(--color-white);
-      border-left: 4px solid var(--color-primary);
-      padding: 1rem 1.5rem;
-      margin: 0 auto 2rem;
-      max-width: 800px;
-      border-radius: 0.5rem;
-      font-style: italic;
-      box-shadow: 0 2px 8px var(--color-shadow);
-    }
-    blockquote footer {
-      margin-top: 0.5rem;
-      font-weight: 600;
-      font-style: normal;
-      text-align: right;
-    }
-    blockquote a {
-      color: var(--color-primary);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    blockquote a:hover {
-      color: #71c4ff;
-    }
-    .timeline {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      max-width: 800px;
-      margin: 0 auto 2rem;
-    }
-    .timeline .date-start,
-    .timeline .date-end {
-      width: 6rem;
-      font-size: 0.9rem;
-      text-align: center;
-    }
-    .progress-bar {
-      flex: 1;
-      height: 1rem;
-      background: var(--color-white);
-      border-radius: 0.5rem;
-      overflow: hidden;
-      box-shadow: 0 2px 8px var(--color-shadow);
-      position: relative;
-    }
-    .progress-fill {
-      background: linear-gradient(90deg, var(--color-primary) 0%, #71c4ff 100%);
-      width: 0;
-      height: 100%;
-      animation: animateProgress 2s forwards;
-    }
-    @keyframes animateProgress {
-      to { width: 2.05%; }
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
-      max-width: 1000px;
-      margin: 0 auto 2rem;
-    }
-    .card {
-      background: var(--color-white);
-      border-radius: 0.5rem;
-      padding: 1rem;
-      box-shadow: 0 2px 8px var(--color-shadow);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 12px var(--color-shadow);
-    }
-    .card .icon {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .scores {
-      max-width: 800px;
-      margin: 0 auto 2rem;
-      font-weight: 600;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.8rem;
-      color: #666;
-      margin-top: 3rem;
-    }
-    .source-links {
-      margin-top: 2rem;
-      text-align: left;
-    }
-    .source-links a {
-      display: block;
-      color: var(--color-primary);
-      text-decoration: none;
-      margin: 0.2rem 0;
-      transition: color 0.2s;
-    }
-    .source-links a:hover {
-      color: #71c4ff;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & The Cure for All Diseases</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-gradient-start: #e0f7fa;
+            --bg-gradient-end: #f8f9fa;
+            --card-bg: rgba(255, 255, 255, 0.8);
+            --text-color: #212529;
+            --text-secondary: #5c677d;
+            --accent-color: #0077b6;
+            --quote-border: #90e0ef;
+            --progress-bar-bg: #dee2e6;
+            --progress-bar-fill: linear-gradient(90deg, #48cae4 0%, #0096c7 100%);
+            --green: #2a9d8f;
+            --red: #e63946;
+            --shadow-color: rgba(0, 91, 115, 0.1);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-image: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .quote-wrapper {
+            margin: 2rem auto 3rem;
+        }
+
+        blockquote {
+            font-size: 1.5rem;
+            font-style: italic;
+            font-weight: 300;
+            color: var(--text-secondary);
+            border-left: 5px solid var(--quote-border);
+            padding: 1rem 2rem;
+            margin: 0;
+            position: relative;
+        }
+
+        blockquote::before {
+            content: '“';
+            font-size: 5rem;
+            color: var(--quote-border);
+            position: absolute;
+            left: -10px;
+            top: -20px;
+            opacity: 0.8;
+            line-height: 1;
+        }
+        
+        cite {
+            display: block;
+            text-align: right;
+            margin-top: 1rem;
+            font-size: 1rem;
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        cite a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        cite a:hover {
+            color: var(--text-color);
+            text-decoration: underline;
+        }
+
+        .snapshot-box {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            padding: 2.5rem;
+            margin: 3rem auto;
+            max-width: 600px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .snapshot-box h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: -webkit-linear-gradient(45deg, #023e8a, #0096c7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .snapshot-box p {
+            font-size: 1.75rem;
+            font-weight: 500;
+            margin: 0.75rem 0;
+        }
+
+        .snapshot-box .label {
+            font-weight: 300;
+        }
+
+        .snapshot-box .red {
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        .snapshot-box .green {
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .progress-section {
+            margin: 4rem auto;
+            text-align: center;
+        }
+
+        .progress-bar-container {
+            position: relative;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 25px;
+            background-color: var(--progress-bar-bg);
+            border-radius: 50px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 11%; /* Based on time from April 2023 to today, vs 10 year goal */
+            height: 100%;
+            background-image: var(--progress-bar-fill);
+            border-radius: 50px;
+            transition: width 1.5s ease-in-out;
+            animation: fillAnimation 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        @keyframes fillAnimation {
+            from { width: 0; }
+            to { width: 11%; }
+        }
+
+        .progress-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            padding: 0 5px;
+        }
+        
+        .today-marker {
+            position: absolute;
+            left: 11%;
+            bottom: -25px;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .today-marker::before {
+            content: '▼';
+            display: block;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .assessment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .assessment-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 8px 25px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .assessment-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 91, 115, 0.15);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-header .emoji {
+            font-size: 2rem;
+        }
+
+        .card-header h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .card-description {
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .source-info {
+            font-size: 0.85rem;
+            font-style: italic;
+            color: #6c757d;
+        }
+
+        .credibility-score {
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        
+        .sources-section {
+            margin: 6rem auto 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--quote-border);
+        }
+
+        .sources-section h2 {
+            text-align: center;
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+        
+        .sources-list {
+            list-style: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .sources-list li {
+            background: rgba(255,255,255,0.6);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            transition: background 0.3s ease;
+        }
+        
+        .sources-list li:hover {
+            background: #fff;
+        }
+        
+        .sources-list a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+        }
+
+        .sources-list a:hover {
+            text-decoration: underline;
+        }
+        
+        .sources-list a span {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            display: block;
+            margin-top: 0.25rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        @media (min-width: 768px) {
+            .assessment-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <blockquote>
-    <p>“I think one day maybe we can cure all diseases with the help of AI. Maybe within the next decade or so, I don't see why not.”</p>
-    <footer>— Demis Hassabis on <a href="https://www.cbsnews.com/news/artificial-intelligence-google-deepmind-ceo-demis-hassabis-60-minutes-transcript/" target="_blank">60 Minutes</a>, April 20 2025</footer>
-  </blockquote>
+    <div class="container">
 
-  <div class="timeline">
-    <span class="date-start">Apr 20, 2025</span>
-    <div class="progress-bar"><div class="progress-fill"></div></div>
-    <span class="date-end">Apr 20, 2035</span>
-  </div>
+        <div class="quote-wrapper">
+            <blockquote>
+                I think one day maybe we can cure all diseases with the help of AI. Maybe within the next decade or so, I don't see why not.
+                <cite>
+                    Demis Hassabis <br>
+                    (Nobel Laureate in Chemistry; CEO of Google DeepMind) <br>
+                    <a href="https://www.cbsnews.com/news/artificial-intelligence-google-deepmind-ceo-demis-hassabis-60-minutes-transcript/" target="_blank" rel="noopener noreferrer">As quoted on April 20, 2025</a>
+                </cite>
+            </blockquote>
+        </div>
 
-  <div class="cards">
-    <div class="card">
-      <div class="icon">🧬</div>
-      <h3>Proteome Blueprint</h3>
-      <p>AlphaFold predicts protein structures with near-atomic accuracy in days, not years. It’s like giving drug scientists a GPS for the human proteome. (Source: Jumper et al. Nature 2021 and credibility 10/10)</p>
-    </div>
-    <div class="card">
-      <div class="icon">💡</div>
-      <h3>Drug Design Sprint</h3>
-      <p>The GENTRL AI designed novel kinase inhibitors in just 21 days, slashing typical timelines. Think of it as turbo-charging a marathon runner to sprint. (Source: Zhavoronkov et al. Nat Biotechnol 2019 and credibility 8/10)</p>
-    </div>
-    <div class="card">
-      <div class="icon">⚡</div>
-      <h3>New Antibiotic</h3>
-      <p>Deep learning uncovered Halicin, a molecule that kills drug-resistant bacteria. It’s like finding a master key in a sea of locks. (Source: Stokes et al. Cell 2020 and credibility 9/10)</p>
-    </div>
-    <div class="card">
-      <div class="icon">🔮</div>
-      <h3>Trial Forecasting</h3>
-      <p>inClinico predicts Phase II trial success with 88 % accuracy using multimodal AI. Imagine a crystal ball for clinical research. (Source: Aliper et al. Clin Pharmacol Ther 2023 and credibility 7/10)</p>
-    </div>
-  </div>
+        <div class="snapshot-box">
+            <h2>Progress Snapshot</h2>
+            <p><span class="label">📅 On the day he said it:</span> <span class="red">5</span>/100</p>
+            <p><span class="label">📍 Today:</span> <strong>7</strong>/100</p>
+            <p><span class="label">📈 Progress:</span> <span class="green">+2%</span></p>
+        </div>
 
-  <div class="scores">
-    On the day he said it: 25/100<br>
-    Today: 28/100<br>
-    Progress: 3%
-  </div>
+        <div class="progress-section">
+            <h2>The Ten Year Journey</h2>
+            <div class="progress-bar-container">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="today-marker">Today (11%)</div>
+                <div class="progress-labels">
+                    <span>Apr 2023</span>
+                    <span>Apr 2033</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="assessment-grid">
+            <div class="assessment-card">
+                <div class="card-header">
+                    <span class="emoji">💊</span>
+                    <h3>Rapid Drug Discovery</h3>
+                </div>
+                <p class="card-description">
+                    AI is now designing new medicines from scratch and predicting their effectiveness in record time. This has slashed the initial discovery phase from years to months for certain drugs.
+                    <br><em>Metaphor: It's like giving a master chef a superpower to invent a new recipe and know it will be delicious before ever touching an ingredient.</em>
+                </p>
+                <p class="source-info">(Source: Insilico Medicine Phase II Trials, <span class="credibility-score">Credibility: 9/10</span>)</p>
+            </div>
+            <div class="assessment-card">
+                <div class="card-header">
+                    <span class="emoji">🧬</span>
+                    <h3>Designing New Biology</h3>
+                </div>
+                <p class="card-description">
+                    Beyond just understanding proteins, AI can now design entirely new ones that don't exist in nature to perform specific tasks. These designer proteins could become the basis for new vaccines and treatments.
+                    <br><em>Metaphor: An architect who can not only understand all existing buildings but can design a completely new, functional skyscraper from imagination.</em>
+                </p>
+                <p class="source-info">(Source: Nature, Baker Lab, <span class="credibility-score">Credibility: 9.5/10</span>)</p>
+            </div>
+            <div class="assessment-card">
+                <div class="card-header">
+                    <span class="emoji">🔬</span>
+                    <h3>Super-powered Diagnostics</h3>
+                </div>
+                <p class="card-description">
+                    AI models are becoming incredibly accurate at spotting diseases like cancer from medical scans, often outperforming human experts. This allows for earlier detection when diseases are much easier to treat.
+                    <br><em>Metaphor: A detective who can spot a single, misplaced grain of sand on a vast beach, finding clues that were previously invisible.</em>
+                </p>
+                <p class="source-info">(Source: The Lancet, Google Health Studies, <span class="credibility-score">Credibility: 9/10</span>)</p>
+            </div>
+            <div class="assessment-card">
+                <div class="card-header">
+                    <span class="emoji">🦠</span>
+                    <h3>Outsmarting Superbugs</h3>
+                </div>
+                <p class="card-description">
+                    Researchers have used AI to discover new types of antibiotics capable of killing drug-resistant bacteria. This is a critical breakthrough in the fight against one of the world's biggest health threats.
+                    <br><em>Metaphor: A spy who finds a secret, unguarded back door into an enemy's fortress that no one else knew existed.</em>
+                </p>
+                <p class="source-info">(Source: Nature Chemical Biology, Abaucin, <span class="credibility-score">Credibility: 9.5/10</span>)</p>
+            </div>
+            <div class="assessment-card">
+                <div class="card-header">
+                    <span class="emoji">🎯</span>
+                    <h3>Personalized Treatments</h3>
+                </div>
+                <p class="card-description">
+                    AI is helping to tailor medical treatments to a person's unique genetic makeup and lifestyle. This moves medicine away from a "one-size-fits-all" approach to create more effective, individualized care plans.
+                    <br><em>Metaphor: Instead of a master key for all doors, AI crafts a unique key for each person's individual lock, ensuring a perfect fit.</em>
+                </p>
+                <p class="source-info">(Source: JAMA Network Review, <span class="credibility-score">Credibility: 8.5/10</span>)</p>
+            </div>
+            <div class="assessment-card">
+                <div class="card-header">
+                    <span class="emoji">🗺️</span>
+                    <h3>Mapping Genetic Diseases</h3>
+                </div>
+                <p class="card-description">
+                    New AI models can now scan a person's entire genome and predict the impact of millions of potential DNA mutations. This helps pinpoint the precise genetic spelling errors that cause rare diseases.
+                    <br><em>Metaphor: A librarian who can read an entire library (our DNA) and instantly find every single typo that could cause a problem.</em>
+                </p>
+                <p class="source-info">(Source: DeepMind's AlphaMissense Paper, <span class="credibility-score">Credibility: 9/10</span>)</p>
+            </div>
+        </div>
 
-  <footer>
-    <div class="source-links">
-      <strong>Sources:</strong><br>
-      https://www.cbsnews.com/news/artificial-intelligence-google-deepmind-ceo-demis-hassabis-60-minutes-transcript/<br>
-      https://www.nature.com/articles/s41586-021-03819-2<br>
-      https://pubmed.ncbi.nlm.nih.gov/31477924/<br>
-      https://pubmed.ncbi.nlm.nih.gov/32084340/<br>
-      https://pubmed.ncbi.nlm.nih.gov/37483175/
+        <div class="sources-section">
+            <h2>Sources for Further Reading</h2>
+            <ul class="sources-list">
+                <li><a href="https://www.nature.com/articles/s41587-023-01953-z" target="_blank" rel="noopener noreferrer">Hallmarks of aging-based dual-purpose therapeutics for idiopathic pulmonary fibrosis discovered by AI
+                        <span>Source: Nature Biotechnology (Insilico Medicine)</span></a>
+                </li>
+                <li><a href="https://www.nature.com/articles/s41586-023-06822-4" target="_blank" rel="noopener noreferrer">De novo design of protein structure and function with RFdiffusion
+                        <span>Source: Nature (David Baker Laboratory)</span></a>
+                </li>
+                 <li><a href="https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(23)00298-X/fulltext" target="_blank" rel="noopener noreferrer">AI-assisted mammogram analysis for breast cancer screening
+                        <span>Source: The Lancet Oncology</span></a>
+                </li>
+                <li><a href="https://www.nature.com/articles/s41589-023-01349-8" target="_blank" rel="noopener noreferrer">Deep learning-guided discovery of an antibiotic against A. baumannii
+                        <span>Source: Nature Chemical Biology (McMaster University/MIT)</span></a>
+                </li>
+                 <li><a href="https://jamanetwork.com/journals/jama/article-abstract/2798674" target="_blank" rel="noopener noreferrer">Artificial Intelligence and the Future of Personalized Medicine
+                        <span>Source: Journal of the American Medical Association (JAMA)</span></a>
+                </li>
+                <li><a href="https://www.science.org/doi/10.1126/science.adg7492" target="_blank" rel="noopener noreferrer">Accurate proteome-wide missense variant effect prediction with AlphaMissense
+                        <span>Source: Science (Google DeepMind)</span></a>
+                </li>
+            </ul>
+        </div>
+        
     </div>
-  </footer>
+
+    <footer>
+        <p>Powered by a large language model from Google.</p>
+    </footer>
 
 </body>
 </html>

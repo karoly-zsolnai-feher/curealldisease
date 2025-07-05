@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI & The Cure for All Diseases</title>
+    <title>The Ten-Year Mission to Cure All Disease</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -22,319 +22,68 @@
             --red: #e63946;
             --shadow-color: rgba(0, 91, 115, 0.1);
         }
-
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-image: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
-            color: var(--text-color);
-            line-height: 1.6;
-            padding: 2rem 1rem;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .quote-wrapper {
-            margin: 2rem auto 3rem;
-        }
-
-        blockquote {
-            font-size: 1.5rem;
-            font-style: italic;
-            font-weight: 300;
-            color: var(--text-secondary);
-            border-left: 5px solid var(--quote-border);
-            padding: 1rem 2rem;
-            margin: 0;
-            position: relative;
-        }
-
-        blockquote::before {
-            content: '“';
-            font-size: 5rem;
-            color: var(--quote-border);
-            position: absolute;
-            left: -10px;
-            top: -20px;
-            opacity: 0.8;
-            line-height: 1;
-        }
-        
-        cite {
-            display: block;
-            text-align: right;
-            margin-top: 1rem;
-            font-size: 1rem;
-            font-style: normal;
-            font-weight: 500;
-        }
-
-        cite a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        cite a:hover {
-            color: var(--text-color);
-            text-decoration: underline;
-        }
-
-        .snapshot-box {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px var(--shadow-color);
-            padding: 2.5rem;
-            margin: 3rem auto;
-            max-width: 600px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-        }
-
-        .snapshot-box h2 {
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            background: -webkit-linear-gradient(45deg, #023e8a, #0096c7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .snapshot-box p {
-            font-size: 1.75rem;
-            font-weight: 500;
-            margin: 0.75rem 0;
-        }
-
-        .snapshot-box .label {
-            font-weight: 300;
-        }
-
-        .snapshot-box .red {
-            color: var(--red);
-            font-weight: 700;
-        }
-
-        .snapshot-box .green {
-            color: var(--green);
-            font-weight: 700;
-        }
-
-        .progress-section {
-            margin: 4rem auto;
-            text-align: center;
-        }
-
-        .progress-bar-container {
-            position: relative;
-            width: 100%;
-            margin-top: 1rem;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 25px;
-            background-color: var(--progress-bar-bg);
-            border-radius: 50px;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            width: 11%; /* Based on time from April 2023 to today, vs 10 year goal */
-            height: 100%;
-            background-image: var(--progress-bar-fill);
-            border-radius: 50px;
-            transition: width 1.5s ease-in-out;
-            animation: fillAnimation 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        }
-
-        @keyframes fillAnimation {
-            from { width: 0; }
-            to { width: 11%; }
-        }
-
-        .progress-labels {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 0.75rem;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-            padding: 0 5px;
-        }
-        
-        .today-marker {
-            position: absolute;
-            left: 11%;
-            bottom: -25px;
-            transform: translateX(-50%);
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--accent-color);
-        }
-
-        .today-marker::before {
-            content: '▼';
-            display: block;
-            text-align: center;
-            font-size: 1rem;
-        }
-
-        .assessment-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .assessment-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 15px;
-            padding: 1.5rem 2rem;
-            box-shadow: 0 8px 25px var(--shadow-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .assessment-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 35px rgba(0, 91, 115, 0.15);
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .card-header .emoji {
-            font-size: 2rem;
-        }
-
-        .card-header h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-
-        .card-description {
-            font-weight: 300;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
-
-        .source-info {
-            font-size: 0.85rem;
-            font-style: italic;
-            color: #6c757d;
-        }
-
-        .credibility-score {
-            font-weight: 700;
-            color: var(--accent-color);
-        }
-        
-        .sources-section {
-            margin: 6rem auto 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--quote-border);
-        }
-
-        .sources-section h2 {
-            text-align: center;
-            font-size: 1.75rem;
-            margin-bottom: 2rem;
-            color: var(--text-secondary);
-        }
-        
-        .sources-list {
-            list-style: none;
-            padding: 0;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .sources-list li {
-            background: rgba(255,255,255,0.6);
-            padding: 1rem 1.5rem;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            transition: background 0.3s ease;
-        }
-        
-        .sources-list li:hover {
-            background: #fff;
-        }
-        
-        .sources-list a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 500;
-            display: block;
-        }
-
-        .sources-list a:hover {
-            text-decoration: underline;
-        }
-        
-        .sources-list a span {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            font-weight: 400;
-            display: block;
-            margin-top: 0.25rem;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 4rem;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        @media (min-width: 768px) {
-            .assessment-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+        html{scroll-behavior:smooth;}
+        body{font-family:'Inter',sans-serif;background-image:linear-gradient(135deg,var(--bg-gradient-start),var(--bg-gradient-end));color:var(--text-color);line-height:1.6;padding:2rem 1rem;}
+        .container{max-width:1100px;margin:0 auto;padding:0 1rem;}
+        .quote-wrapper{margin:2rem auto 3rem;}
+        blockquote{font-size:1.5rem;font-style:italic;font-weight:300;color:var(--text-secondary);border-left:5px solid var(--quote-border);padding:1rem 2rem;margin:0;position:relative;}
+        blockquote::before{content:'“';font-size:5rem;color:var(--quote-border);position:absolute;left:-10px;top:-20px;opacity:.8;line-height:1;}
+        cite{display:block;text-align:right;margin-top:1rem;font-size:1rem;font-style:normal;font-weight:500;}
+        cite a{color:var(--accent-color);text-decoration:none;transition:color .3s ease;}
+        cite a:hover{color:var(--text-color);text-decoration:underline;}
+        .snapshot-box{background:var(--card-bg);backdrop-filter:blur(10px);border-radius:20px;box-shadow:0 10px 30px var(--shadow-color);padding:2.5rem;margin:3rem auto;max-width:600px;text-align:center;border:1px solid rgba(255,255,255,.5);}
+        .snapshot-box h2{font-size:2.5rem;font-weight:900;margin-bottom:1.5rem;background:-webkit-linear-gradient(45deg,#023e8a,#0096c7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        .snapshot-box p{font-size:1.75rem;font-weight:500;margin:.75rem 0;}
+        .snapshot-box .label{font-weight:300;}
+        .snapshot-box .red{color:var(--red);font-weight:700;}
+        .snapshot-box .green{color:var(--green);font-weight:700;}
+        .progress-section{margin:4rem auto;text-align:center;}
+        .progress-bar-container{position:relative;width:100%;margin-top:1rem;}
+        .progress-bar{width:100%;height:25px;background-color:var(--progress-bar-bg);border-radius:50px;box-shadow:inset 0 2px 4px rgba(0,0,0,.1);overflow:hidden;}
+        .progress-fill{width:2.1%;height:100%;background-image:var(--progress-bar-fill);border-radius:50px;transition:width 1.5s ease-in-out;animation:fillAnimation 1.5s cubic-bezier(.25,.46,.45,.94) forwards;}
+        @keyframes fillAnimation{from{width:0;}to{width:2.1%;}}
+        .progress-labels{display:flex;justify-content:space-between;margin-top:.75rem;font-size:.9rem;color:var(--text-secondary);font-weight:500;padding:0 5px;}
+        .today-marker{position:absolute;left:2.1%;bottom:-25px;transform:translateX(-50%);font-size:.9rem;font-weight:700;color:var(--accent-color);}
+        .today-marker::before{content:'▼';display:block;text-align:center;font-size:1rem;}
+        .assessment-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin-top:3rem;}
+        .assessment-card{background:var(--card-bg);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.5);border-radius:15px;padding:1.5rem 2rem;box-shadow:0 8px 25px var(--shadow-color);transition:transform .3s ease,box-shadow .3s ease;}
+        .assessment-card:hover{transform:translateY(-8px);box-shadow:0 12px 35px rgba(0,91,115,.15);}
+        .card-header{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;}
+        .card-header .emoji{font-size:2rem;}
+        .card-header h3{font-size:1.25rem;font-weight:700;}
+        .card-description{font-weight:300;color:var(--text-secondary);margin-bottom:1rem;}
+        .source-info{font-size:.85rem;font-style:italic;color:#6c757d;}
+        .credibility-score{font-weight:700;color:var(--accent-color);}
+        .sources-section{margin:6rem auto 3rem;padding-top:2rem;border-top:1px solid var(--quote-border);}
+        .sources-section h2{text-align:center;font-size:1.75rem;margin-bottom:2rem;color:var(--text-secondary);}
+        .sources-list{list-style:none;padding:0;max-width:800px;margin:0 auto;}
+        .sources-list li{background:rgba(255,255,255,.6);padding:1rem 1.5rem;border-radius:10px;margin-bottom:1rem;transition:background .3s ease;}
+        .sources-list li:hover{background:#fff;}
+        .sources-list a{color:var(--accent-color);text-decoration:none;font-weight:500;display:block;}
+        .sources-list a:hover{text-decoration:underline;}
+        .sources-list a span{font-size:.8rem;color:var(--text-secondary);font-weight:400;display:block;margin-top:.25rem;}
+        footer{text-align:center;margin-top:4rem;font-size:.9rem;color:var(--text-secondary);}
+        @media (min-width:768px){.assessment-grid{grid-template-columns:repeat(2,1fr);}}
     </style>
 </head>
 <body>
-
     <div class="container">
-
         <div class="quote-wrapper">
             <blockquote>
                 I think one day maybe we can cure all diseases with the help of AI. Maybe within the next decade or so, I don't see why not.
                 <cite>
-                    Demis Hassabis <br>
-                    (Nobel Laureate in Chemistry; CEO of Google DeepMind) <br>
-                    <a href="https://www.cbsnews.com/news/artificial-intelligence-google-deepmind-ceo-demis-hassabis-60-minutes-transcript/" target="_blank" rel="noopener noreferrer">As quoted on April 20, 2025</a>
+                    — Demis Hassabis, Nobel Laureate in Chemistry &amp; CEO of Google DeepMind (said on 20&nbsp;April&nbsp;2025) <br>
+                    <a href="https://www.cbsnews.com/news/artificial-intelligence-google-deepmind-ceo-demis-hassabis-60-minutes-transcript/" target="_blank" rel="noopener noreferrer">CBS 60 Minutes transcript</a>
                 </cite>
             </blockquote>
         </div>
 
         <div class="snapshot-box">
             <h2>Progress Snapshot</h2>
-            <p><span class="label">📅 On the day he said it:</span> <span class="red">5</span>/100</p>
-            <p><span class="label">📍 Today:</span> <strong>7</strong>/100</p>
-            <p><span class="label">📈 Progress:</span> <span class="green">+2%</span></p>
+            <p><span class="label">📅 On&nbsp;20&nbsp;Apr&nbsp;2025:</span> <span class="red">5</span>/100</p>
+            <p><span class="label">📍 Today:</span> <span class="green">12</span>/100</p>
+            <p><span class="label">📈 Progress:</span> <span class="green">+7%</span></p>
         </div>
 
         <div class="progress-section">
@@ -343,114 +92,91 @@
                 <div class="progress-bar">
                     <div class="progress-fill"></div>
                 </div>
-                <div class="today-marker">Today (11%)</div>
+                <div class="today-marker">Today&nbsp;(2%)</div>
                 <div class="progress-labels">
-                    <span>Apr 2023</span>
-                    <span>Apr 2033</span>
+                    <span>Apr&nbsp;2025</span>
+                    <span>Apr&nbsp;2035</span>
                 </div>
             </div>
         </div>
-        
+
+        <h2 style="margin-top:4rem;text-align:center;font-weight:800;">🌟 Recent Wins</h2>
+
         <div class="assessment-grid">
+            <!-- 1 -->
             <div class="assessment-card">
-                <div class="card-header">
-                    <span class="emoji">💊</span>
-                    <h3>Rapid Drug Discovery</h3>
-                </div>
-                <p class="card-description">
-                    AI is now designing new medicines from scratch and predicting their effectiveness in record time. This has slashed the initial discovery phase from years to months for certain drugs.
-                    <br><em>It's like giving a master chef a superpower to invent a new recipe and know it will be delicious before ever touching an ingredient.</em>
-                </p>
-                <p class="source-info">(Source: Insilico Medicine Phase II Trials, <span class="credibility-score">Credibility: 9/10</span>)</p>
+                <div class="card-header"><span class="emoji">🩸</span><h3>Cancer Blood Test</h3></div>
+                <p class="card-description">An AI blood test spots 12 common cancers from a few drops of blood. First NHS trial results look promising.</p>
+                <p class="source-info">(21&nbsp;May&nbsp;2025, Source: 2MM AI Roundup, <span class="credibility-score">Credibility: 6/10</span>)</p>
             </div>
+            <!-- 2 -->
             <div class="assessment-card">
-                <div class="card-header">
-                    <span class="emoji">🧬</span>
-                    <h3>Designing New Biology</h3>
-                </div>
-                <p class="card-description">
-                    Beyond just understanding proteins, AI can now design entirely new ones that don't exist in nature to perform specific tasks. These designer proteins could become the basis for new vaccines and treatments.
-                    <br><em>An architect who can not only understand all existing buildings but can design a completely new, functional skyscraper from imagination.</em>
-                </p>
-                <p class="source-info">(Source: Nature, Baker Lab, <span class="credibility-score">Credibility: 9.5/10</span>)</p>
+                <div class="card-header"><span class="emoji">🏥</span><h3>Safer Hospitals</h3></div>
+                <p class="card-description">AI sensors warn nurses before a patient may fall. Emory Hospital cut falls by about one‑fifth since rollout.</p>
+                <p class="source-info">(21&nbsp;May&nbsp;2025, Source: 2MM AI Roundup, <span class="credibility-score">Credibility: 6/10</span>)</p>
             </div>
+            <!-- 3 -->
             <div class="assessment-card">
-                <div class="card-header">
-                    <span class="emoji">🔬</span>
-                    <h3>Super-powered Diagnostics</h3>
-                </div>
-                <p class="card-description">
-                    AI models are becoming incredibly accurate at spotting diseases like cancer from medical scans, often outperforming human experts. This allows for earlier detection when diseases are much easier to treat.
-                    <br><em>A detective who can spot a single, misplaced grain of sand on a vast beach, finding clues that were previously invisible.</em>
-                </p>
-                <p class="source-info">(Source: The Lancet, Google Health Studies, <span class="credibility-score">Credibility: 9/10</span>)</p>
+                <div class="card-header"><span class="emoji">🧬</span><h3>DNA Liquid Biopsy</h3></div>
+                <p class="card-description">A quick blood test matches cancers to the right drug in days. NHS England is rolling it out nationwide.</p>
+                <p class="source-info">(29&nbsp;May&nbsp;2025, Source: The Guardian, <span class="credibility-score">Credibility: 7/10</span>)</p>
             </div>
+            <!-- 4 -->
             <div class="assessment-card">
-                <div class="card-header">
-                    <span class="emoji">🦠</span>
-                    <h3>Outsmarting Superbugs</h3>
-                </div>
-                <p class="card-description">
-                    Researchers have used AI to discover new types of antibiotics capable of killing drug-resistant bacteria. This is a critical breakthrough in the fight against one of the world's biggest health threats.
-                    <br><em>A spy who finds a secret, unguarded back door into an enemy's fortress that no one else knew existed.</em>
-                </p>
-                <p class="source-info">(Source: Nature Chemical Biology, Abaucin, <span class="credibility-score">Credibility: 9.5/10</span>)</p>
+                <div class="card-header"><span class="emoji">💉</span><h3>AI Antibody Drug</h3></div>
+                <p class="card-description">GV20‑0251, picked by AI, shrank tumours in early human tests. More patients are joining now.</p>
+                <p class="source-info">(04&nbsp;Jun&nbsp;2025, Source: PR Newswire, <span class="credibility-score">Credibility: 5/10</span>)</p>
             </div>
+            <!-- 5 -->
             <div class="assessment-card">
-                <div class="card-header">
-                    <span class="emoji">🎯</span>
-                    <h3>Personalized Treatments</h3>
-                </div>
-                <p class="card-description">
-                    AI is helping to tailor medical treatments to a person's unique genetic makeup and lifestyle. This moves medicine away from a "one-size-fits-all" approach to create more effective, individualized care plans.
-                    <br><em>Instead of a master key for all doors, AI crafts a unique key for each person's individual lock, ensuring a perfect fit.</em>
-                </p>
-                <p class="source-info">(Source: JAMA Network Review, <span class="credibility-score">Credibility: 8.5/10</span>)</p>
+                <div class="card-header"><span class="emoji">🧠</span><h3>Brain Disease Bot</h3></div>
+                <p class="card-description">An AI assistant beat doctors at spotting rare balance disorders, scoring 91% vs 18%.</p>
+                <p class="source-info">(15&nbsp;May&nbsp;2025, Source: Nature Rev. Neurology, <span class="credibility-score">Credibility: 8/10</span>)</p>
             </div>
+            <!-- 6 -->
             <div class="assessment-card">
-                <div class="card-header">
-                    <span class="emoji">🗺️</span>
-                    <h3>Mapping Genetic Diseases</h3>
-                </div>
-                <p class="card-description">
-                    New AI models can now scan a person's entire genome and predict the impact of millions of potential DNA mutations. This helps pinpoint the precise genetic spelling errors that cause rare diseases.
-                    <br><em>A librarian who can read an entire library (our DNA) and instantly find every single typo that could cause a problem.</em>
-                </p>
-                <p class="source-info">(Source: DeepMind's AlphaMissense Paper, <span class="credibility-score">Credibility: 9/10</span>)</p>
+                <div class="card-header"><span class="emoji">🤖</span><h3>Therapy Chatbot</h3></div>
+                <p class="card-description">Limbic's chatbot helped people stick with therapy and recover faster at NHS clinics.</p>
+                <p class="source-info">(21&nbsp;May&nbsp;2025, Source: 2MM AI Roundup, <span class="credibility-score">Credibility: 6/10</span>)</p>
+            </div>
+            <!-- 7 -->
+            <div class="assessment-card">
+                <div class="card-header"><span class="emoji">💰</span><h3>Faster Drug Labs</h3></div>
+                <p class="card-description">Insilico raised $110 M to expand its robot‑AI labs. Two AI‑made cancer drugs enter trials this year.</p>
+                <p class="source-info">(21&nbsp;May&nbsp;2025, Source: 2MM AI Roundup, <span class="credibility-score">Credibility: 5/10</span>)</p>
+            </div>
+            <!-- 8 -->
+            <div class="assessment-card">
+                <div class="card-header"><span class="emoji">🦿</span><h3>Mind‑Controlled Hand</h3></div>
+                <p class="card-description">Brain‑wave signals drove robot fingers in real time with 80% accuracy in volunteers.</p>
+                <p class="source-info">(01&nbsp;Jul&nbsp;2025, Source: Nature Communications, <span class="credibility-score">Credibility: 7/10</span>)</p>
+            </div>
+            <!-- 9 -->
+            <div class="assessment-card">
+                <div class="card-header"><span class="emoji">💪</span><h3>Smart Exoskeleton</h3></div>
+                <p class="card-description">A deep‑learning exoskeleton reads muscle signals and predicts movement with 97% accuracy.</p>
+                <p class="source-info">(30&nbsp;May&nbsp;2025, Source: Scientific Reports, <span class="credibility-score">Credibility: 7/10</span>)</p>
             </div>
         </div>
 
         <div class="sources-section">
             <h2>Sources for Further Reading</h2>
             <ul class="sources-list">
-                <li><a href="https://www.nature.com/articles/s41587-023-01953-z" target="_blank" rel="noopener noreferrer">Hallmarks of aging-based dual-purpose therapeutics for idiopathic pulmonary fibrosis discovered by AI
-                        <span>Source: Nature Biotechnology (Insilico Medicine)</span></a>
-                </li>
-                <li><a href="https://www.nature.com/articles/s41586-023-06822-4" target="_blank" rel="noopener noreferrer">De novo design of protein structure and function with RFdiffusion
-                        <span>Source: Nature (David Baker Laboratory)</span></a>
-                </li>
-                 <li><a href="https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(23)00298-X/fulltext" target="_blank" rel="noopener noreferrer">AI-assisted mammogram analysis for breast cancer screening
-                        <span>Source: The Lancet Oncology</span></a>
-                </li>
-                <li><a href="https://www.nature.com/articles/s41589-023-01349-8" target="_blank" rel="noopener noreferrer">Deep learning-guided discovery of an antibiotic against A. baumannii
-                        <span>Source: Nature Chemical Biology (McMaster University/MIT)</span></a>
-                </li>
-                 <li><a href="https://jamanetwork.com/journals/jama/article-abstract/2798674" target="_blank" rel="noopener noreferrer">Artificial Intelligence and the Future of Personalized Medicine
-                        <span>Source: Journal of the American Medical Association (JAMA)</span></a>
-                </li>
-                <li><a href="https://www.science.org/doi/10.1126/science.adg7492" target="_blank" rel="noopener noreferrer">Accurate proteome-wide missense variant effect prediction with AlphaMissense
-                        <span>Source: Science (Google DeepMind)</span></a>
-                </li>
+                <li><a href="https://www.2minutemedicine.com/2-minute-medicine-ai-roundup-may-2nd-2025/" target="_blank" rel="noopener noreferrer">2 Minute Medicine – AI Roundup (21&nbsp;May&nbsp;2025)<span>Multiple AI health highlights</span></a></li>
+                <li><a href="https://www.theguardian.com/society/2025/may/29/revolutionary-dna-blood-test-to-offer-thousands-in-england-tailored-cancer-care" target="_blank" rel="noopener noreferrer">Guardian – DNA blood test tailors cancer care (29&nbsp;May&nbsp;2025)<span>Cancer liquid biopsy rollout</span></a></li>
+                <li><a href="https://www.prnewswire.com/news-releases/gv20-therapeutics-presents-updated-phase-1-monotherapy-data-on-gv20-0251-at-the-asco-annual-meeting-2025-302463359.html" target="_blank" rel="noopener noreferrer">PR Newswire – GV20‑0251 early trial data (04&nbsp;Jun&nbsp;2025)<span>First AI antibody results</span></a></li>
+                <li><a href="https://www.nature.com/articles/s41582-025-01102-w" target="_blank" rel="noopener noreferrer">Nature Reviews Neurology – AI diagnoses ataxia (15&nbsp;May&nbsp;2025)<span>Virtual assistant beats doctors</span></a></li>
+                <li><a href="https://www.nature.com/articles/s41467-025-61064-x" target="_blank" rel="noopener noreferrer">Nature Communications – EEG BCI robotic hand (01&nbsp;Jul&nbsp;2025)<span>Real‑time finger control</span></a></li>
+                <li><a href="https://www.nature.com/articles/s41598-025-02864-5" target="_blank" rel="noopener noreferrer">Scientific Reports – Deep‑learning exoskeleton (30&nbsp;May&nbsp;2025)<span>Predicting arm motion</span></a></li>
             </ul>
         </div>
-        
+
     </div>
 
-    <footer>
-        <p>Powered by a large language model from Google.</p>
-    </footer>
-<div style="text-align: center; opacity: 0.3; margin-top: 50px;">
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=curealldisease.com" alt="view count" />
-</div>
+    <footer><p>Powered by a large language model AI.</p></footer>
+
+    <div style="text-align: center; opacity: 0.3; margin-top: 50px;">
+      <img src="https://visitor-badge.laobi.icu/badge?page_id=curealldisease.com" alt="view count" />
+    </div>
 </body>
 </html>
